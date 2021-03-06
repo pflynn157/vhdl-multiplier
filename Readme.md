@@ -1,12 +1,7 @@
 
-## VHDL Project Base
+## VHDL Multiplier
 
-This is a template for VHDL projects. Hopefully it will be useful to others besides myself. It contains a AND, OR, and NOT gates as circuits, and a few example tests. I use GHDL as my compiler. See the makefile for more information; you can extend it as needed.
+This is a simple VHDL multiplier for 8-bit numbers.
 
-### Credits
+This is my first attempt at making something like this. Multipliers are slow anyway, but this one is extremely slow, taking 25 clock cycles (250 ns) to compute the product. I eventually want to expand it and reduce the number of clock cycles by working on multiple bits in parallel.
 
-Although I did a lot of modifications to adapt it to my purposes, this is not completely my own work. Here are the credits.
-
-The core infastructure and the idea came from here: https://github.com/pvarin/SampleVHDL.
-
-The automated example for the AND gate is from the GHDL docs.
