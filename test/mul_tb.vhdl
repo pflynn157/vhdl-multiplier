@@ -43,15 +43,12 @@ begin
         wait for 100 ns;
         reset <= '1'; 
         wait for clk_period;
-        reset <= '0'; 
-
-        --wait for clk_period*10;
+        reset <= '0';
         
         -- Start testing
         A <= "00000101";
         B <= "00000010";
         wait until ready = '1';
-        --assert P = "00001010" report "Test 1 failed." severity error;
         assert P = X"0A" report "5 * 2 failed" severity error;
         
         A <= X"07";
@@ -59,13 +56,15 @@ begin
         wait until ready = '1';
         assert P = X"0E" report "7 * 2 failed" severity error;
         
-        --B <= "00000010";
-        --wait until ready = '1';
-        --assert P = "00110111" report "Test 2 failed." severity error;
+        A <= X"03";
+        B <= X"03";
+        wait until ready = '1';
+        assert P = X"09" report "3 * 3 failed" severity error;
         
-        --B <= "00000100";
-        --wait until ready = '1';
-        --assert P = "00111001" report "Test 3 failed." severity error;
+        A <= X"11";
+        B <= X"03";
+        wait until ready = '1';
+        assert P = X"33" report "17 * 3 failed" severity error;
         
         wait;
         
