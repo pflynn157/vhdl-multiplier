@@ -1,7 +1,8 @@
 
 ## VHDL Multiplier
 
-This is a simple VHDL multiplier for 8-bit numbers.
+This is a simple VHDL multiplier for 8-bit numbers. There are two multipliers right now: A 1-stage and 2-stage multiplier.
 
-This is my first attempt at making something like this. Multipliers are slow anyway, but this one is extremely slow, taking 25 clock cycles (250 ns) to compute the product. I eventually want to expand it and reduce the number of clock cycles by working on multiple bits in parallel.
+The 1-stage multiplier is the simplest in terms of components, but it is extremely slow, taking 25 clock cycles (250 ns) to compute the product. 
 
+The 2-stage multiplier attempts to do two operations on each stage; it has significantly better performance than the one-stage, taking 13 clock cycles (130 ns) to compute the product. However, it is also more complex because it requires extra signals and two of every component (x2 right shifters, x2 left shifters, and x3 adders).

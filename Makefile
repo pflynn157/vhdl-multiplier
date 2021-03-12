@@ -1,7 +1,8 @@
 # The files
-FILES		= src/mul.vhdl src/rsh.vhdl src/lsh.vhdl src/adder.vhdl
+FILES		= src/mul.vhdl src/mul2.vhdl \
+                src/rsh.vhdl src/lsh.vhdl src/adder.vhdl
 SIMDIR		= sim
-SIMFILES	= test/mul_tb.vhdl
+SIMFILES	= test/mul_tb.vhdl test/mul_tb2.vhdl
 
 # GHDL
 GHDL_CMD	= ghdl
@@ -22,10 +23,12 @@ compile:
 	ghdl -a $(GHDL_FLAGS) $(GHDL_WORKDIR) $(FILES)
 	ghdl -a $(GHDL_FLAGS) $(GHDL_WORKDIR) $(SIMFILES)
 	ghdl -e -o sim/mul_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) mul_tb
+	ghdl -e -o sim/mul_tb2 $(GHDL_FLAGS) $(GHDL_WORKDIR) mul_tb2
 
 run:
 	cd sim; \
 	ghdl -r $(GHDL_FLAGS) mul_tb $(GHDL_STOP) --wave=wave.ghw; \
+	ghdl -r $(GHDL_FLAGS) mul_tb2 $(GHDL_STOP) --wave=wave2.ghw; \
 	cd ..
 
 view:
