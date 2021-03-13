@@ -55,6 +55,7 @@ begin
             stage <= 0;
             counter <= 0;
             ready <= '0';
+            counter_vec <= X"00";
             P <= X"00";
             
         -- Otherwise if we're on a new clock cycle and the reset bit is not set,
